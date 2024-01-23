@@ -22,7 +22,15 @@ public class DadJokeService {
         repository.save(joke);
     }
 
-    public void update(int id, String newJokeText){
-        //repository.findAllById(id).
+    public DadJoke update(int id, String newJokeText){
+        DadJoke dadJoke = repository.findById(id).orElseThrow();
+
+        dadJoke.setJokeText(newJokeText);
+
+        return dadJoke;
+    }
+
+    public void delete(int id){
+        repository.deleteById(id);
     }
 }
