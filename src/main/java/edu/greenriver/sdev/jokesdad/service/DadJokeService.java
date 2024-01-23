@@ -35,4 +35,8 @@ public class DadJokeService {
     public void delete(int id){
         repository.deleteById(id);
     }
+
+    public DadJoke byId(int id){
+        return repository.findById(id).orElseThrow();
+    }
 }

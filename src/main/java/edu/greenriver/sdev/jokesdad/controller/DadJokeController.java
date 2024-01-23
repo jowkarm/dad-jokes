@@ -5,6 +5,8 @@ import edu.greenriver.sdev.jokesdad.service.DadJokeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
+
 @RestController
 public class DadJokeController {
 
@@ -34,5 +36,19 @@ public class DadJokeController {
     public void delete(@PathVariable int id){
 
         service.delete(id);
+    }
+
+    @GetMapping("jokes/{id}")
+    public DadJoke byId(@PathVariable int id){
+
+        return service.byId(id);
+    }
+
+    @GetMapping("jokes/random")
+    public DadJoke random(){
+
+        Random random = new Random();
+        int id = random.nextInt(1, 11);
+        return service.byId(id);
     }
 }
