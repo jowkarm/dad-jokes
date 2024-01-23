@@ -2,9 +2,11 @@ package edu.greenriver.sdev.jokesdad.service;
 
 import edu.greenriver.sdev.jokesdad.db.DadJokeRepository;
 import edu.greenriver.sdev.jokesdad.model.DadJoke;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DadJokeService {
     private DadJokeRepository repository;
 
@@ -18,8 +20,8 @@ public class DadJokeService {
         return jokes;
     }
 
-    public void add(DadJoke joke){
-        repository.save(joke);
+    public DadJoke add(DadJoke joke){
+        return repository.save(joke);
     }
 
     public DadJoke update(int id, String newJokeText){

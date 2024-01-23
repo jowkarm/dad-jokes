@@ -5,7 +5,7 @@ import edu.greenriver.sdev.jokesdad.service.DadJokeService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RestController
 public class DadJokeController {
 
     private DadJokeService service;
